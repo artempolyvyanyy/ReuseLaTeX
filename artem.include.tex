@@ -1,0 +1,58 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Improting useful packages and defining useful commands for LaTeX
+%
+% Prepared by Artem Polyvyanyy
+% Email:    artem.polyvyanyy@gmail.com 
+% Homepage: http://polyvyanyy.com
+% Last updated on 6 Nov, 2019
+%
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% USE PACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-------------------------------------------------------------------------------
+% https://en.wikibooks.org/wiki/LaTeX/Colors
+\usepackage[usenames,dvipsnames]{xcolor}
+%-------------------------------------------------------------------------------
+https://ctan.org/pkg/algorithm2e?lang=en
+\usepackage[algoruled,vlined,linesnumbered]{algorithm2e}
+%-------------------------------------------------------------------------------
+\usepackage{amsmath}
+%-------------------------------------------------------------------------------
+\usepackage[pdfsubject={!TODO!},
+                            pdftitle={!TITLE!},
+                            pdfauthor={Artem Polyvyanyy},
+                            pdfkeywords={!TODO!},
+                            colorlinks=false,
+                            pdfborder={0 0 0}]{hyperref}
+\usepackage[algoruled]{algorithm2e}
+%-------------------------------------------------------------------------------
+% Manage referecnes
+https://ctan.org/tex-archive/macros/latex/contrib/cleveref
+\usepackage[capitalise,nameinlink]{cleveref}
+%-------------------------------------------------------------------------------
+% Manage TODOs
+% https://ctan.org/pkg/todonotes?lang=en
+\usepackage[textsize=scriptsize,backgroundcolor=yellow!40]{todonotes}
+% \todo[inline]{...} - specify an inline todo comment
+%-------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONFIGURATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hypersetup{bookmarksdepth=3}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DEFINE NEW COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-------------------------------------------------------------------------------
+% Math functions
+\newcommand{\func}[3]{{{#1}:{#2} \rightarrow {#3}}}
+\newcommand{\funcCall}[2]{{{\mathit{#1}}\left({#2}\right)}}
+%-------------------------------------------------------------------------------
