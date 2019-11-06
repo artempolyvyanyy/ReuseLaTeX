@@ -1,0 +1,51 @@
+--------------------------------------------------------------------------------
+\begin{tikzpicture}
+	\begin{axis}[
+	  height=5cm,
+		width=.42\linewidth,
+		axis x line=bottom,
+		axis y line=left,
+		xlabel=Step No.,
+		ylabel=Probability,
+		%ylabel shift = 1cm,
+		ylabel near ticks,
+		xlabel near ticks,
+		y tick label style={
+        /pgf/number format/.cd,
+            fixed,
+            fixed zerofill,
+            precision=1,
+        /tikz/.cd
+    },
+		label style={font=\footnotesize},
+		legend style={
+			cells={anchor=east},
+			legend pos=outer north east,
+		},
+		%scaled y ticks=base 10:4,
+		ymin=0,
+		ymax=1,
+		xtick = {1,2,...,11},
+		grid=both
+		]
+    \pgfplotstableread[col sep=comma]{data/data-miguel-rational.csv}{\table}
+		
+ 		\addplot[very thick,mark=diamond*,color=mygoalacolor] table [y index=1,col sep=comma] {\table};
+        \addlegendentryexpanded{A}
+ 		
+ 		\addplot[very thick,mark=square*,color=mygoalbcolor] table [y index=2,col sep=comma] {\table};
+        \addlegendentryexpanded{B}
+
+ 		\addplot[very thick,mark=triangle*,color=mygoalccolor] table [y index=3,col sep=comma] {\table};
+        \addlegendentryexpanded{C}
+ 		
+ 		\addplot[very thick,mark=x,color=mygoaldcolor] table [y index=4,col sep=comma] {\table};
+        \addlegendentryexpanded{D}
+
+ 		\addplot[very thick,mark=*,mygoalecolor] table [y index=5,col sep=comma] {\table};
+        \addlegendentryexpanded{E}
+
+ 		\addplot[very thick,mark=pentagon*,mygoalfcolor] table [y index=6,col sep=comma] {\table};
+        \addlegendentryexpanded{F}
+	\end{axis}
+\end{tikzpicture}
