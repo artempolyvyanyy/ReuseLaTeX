@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% An empty LaTeX project with useful packages and commands
+% Configuration constants
 %
 % Last updated on 9 Nov, 2019
 % Prepared by Artem Polyvyanyy
@@ -7,21 +7,9 @@
 % Email:    artem.polyvyanyy@gmail.com 
 % Homepage: http://polyvyanyy.com
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass{article}
-\input{artem.config.tex}
-\input{artem.include.tex}
 
-\title{\articletitle}
+% Use APA title case for the titles: https://capitalizemytitle.com/
+\newcommand{\articletitle}  {An Article on an Important Topic}
+\newcommand{\articleauthors}{Artem Polyvyanyy}
 
-\date{\today}
-
-\author{\articleauthors}
-
-\begin{document}
-
-\maketitle
-
-\bibliographystyle{plain}
-\bibliography{bibliography}
-	
-\end{document} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

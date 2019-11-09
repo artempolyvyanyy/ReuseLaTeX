@@ -8,7 +8,6 @@
 % Homepage: http://polyvyanyy.com
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % USE PACKAGES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -23,8 +22,8 @@
 \usepackage{amsmath}
 %-------------------------------------------------------------------------------
 \usepackage[pdfsubject={!TODO!},
-                            pdftitle={!TITLE!},
-                            pdfauthor={Artem Polyvyanyy},
+                            pdftitle={\articletitle},
+                            pdfauthor={\articleauthors},
                             pdfkeywords={!TODO!},
                             colorlinks=false,
                             pdfborder={0 0 0}]{hyperref}
@@ -32,7 +31,7 @@
 %-------------------------------------------------------------------------------
 % Manage TODOs
 % https://ctan.org/pkg/todonotes?lang=en
-\usepackage[textsize=scriptsize,backgroundcolor=yellow!40]{todonotes}
+\usepackage[textsize=scriptsize]{todonotes} % backgroundcolor=yellow!40
 % \todo[inline]{...} - specify an inline todo comment
 %-------------------------------------------------------------------------------
 \usepackage{tikz,pgf,xcolor}
@@ -44,6 +43,9 @@
 % https://ctan.org/tex-archive/macros/latex/contrib/cleveref
 \usepackage[capitalise,nameinlink]{cleveref}
 %-------------------------------------------------------------------------------
+
+% Can be useful
+%http://anorien.csc.warwick.ac.uk/mirrors/CTAN/macros/latex/contrib/constants/constants.pdf
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CONSTANTS
