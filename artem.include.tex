@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Improting useful packages and defining useful commands for LaTeX
 %
-% Last updated on 7 Nov, 2019
+% Last updated on 17 Nov, 2019
 % Prepared by Artem Polyvyanyy
 %
 % Email:    artem.polyvyanyy@gmail.com 
@@ -29,7 +29,7 @@
                             pdfborder={0 0 0}]{hyperref}
 \usepackage[algoruled]{algorithm2e}
 %-------------------------------------------------------------------------------
-% Manage TODOs
+% Manage to do items
 % https://ctan.org/pkg/todonotes?lang=en
 \usepackage[textsize=scriptsize]{todonotes} % backgroundcolor=yellow!40
 % \todo[inline]{...} - specify an inline todo comment
@@ -38,6 +38,19 @@
 \usetikzlibrary{arrows,automata,trees,plotmarks,shadows,shapes}
 \usepackage{pgfplots}
 \usetikzlibrary{pgfplots.groupplots}
+%-------------------------------------------------------------------------------
+% TODO: check the usage
+\usepackage{url}
+\urlstyle{same}
+%-------------------------------------------------------------------------------
+% TODO: check the usage
+\usepackage[firstpage]{draftwatermark}
+\SetWatermarkAngle{0}
+\SetWatermarkFontSize{10pt}
+\SetWatermarkHorCenter{153mm}
+\SetWatermarkVerCenter{240mm}
+\SetWatermarkLightness{0.6}
+\SetWatermarkText{Postprint, March 2019}
 %-------------------------------------------------------------------------------
 % Manage referecnes
 % https://ctan.org/tex-archive/macros/latex/contrib/cleveref
