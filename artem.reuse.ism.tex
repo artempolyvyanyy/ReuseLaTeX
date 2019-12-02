@@ -1,0 +1,27 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Reusabe content for ISMs
+%
+% First created on: Dec 2, 2019
+% Last updated on:  Dec 2, 2019
+% Prepared by Artem Polyvyanyy
+%
+% Email:    artem.polyvyanyy@gmail.com 
+% Homepage: http://polyvyanyy.com
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{ncdefine}{Information model}{def:data:model}{\quad\\}
+An \emph{information model} is a 4-tuple $(E,R,\rho,\Psi)$, where:
+\begin{compactitem}
+\item
+$E \subseteq \powerset{\identities}$ is a finite set of \emph{entity types};
+\item
+$R \subseteq \labels$ is a finite set of \emph{relation types};
+\item
+$\rho : R \rightarrow \kleenestar{E}$ is a \emph{relation definition function} that maps every relation type onto a finite sequence of entity types 
+for which it holds that for every $e \in E$ there exists $r \in R$, called the \emph{entity relation} of $e$, such that $\rho(r)=\sequence{e}$; and
+\item
+$\Psi$ is a collection of \emph{constraints} defined as a formal theory of the first-order logic statements over 
+a collection of predicates that for every $r \in R$ contains a predicate with the domain $\prod_{i=1}^{|\rho(r)|}{\rho(r)(i)}$. 
+\hfill\ensuremath{\lrcorner}
+\end{compactitem}	
+\end{ncdefine}

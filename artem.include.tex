@@ -1,7 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Improting useful packages and defining useful commands for LaTeX
 %
-% Last updated on 17 Nov, 2019
+% First created on: Nov 9, 2019
+% Last updated on:  Dec 2, 2019
 % Prepared by Artem Polyvyanyy
 %
 % Email:    artem.polyvyanyy@gmail.com 
@@ -21,12 +22,18 @@
 %-------------------------------------------------------------------------------
 \usepackage{amsmath}
 %-------------------------------------------------------------------------------
-\usepackage[pdfsubject={!TODO!},
+\usepackage{mnsymbol}
+%-------------------------------------------------------------------------------
+\usepackage{paralist}
+%-------------------------------------------------------------------------------
+\usepackage[pdfsubject={\articlesubjet},
                             pdftitle={\articletitle},
                             pdfauthor={\articleauthors},
-                            pdfkeywords={!TODO!},
+                            pdfkeywords={\articlesubjet},
                             colorlinks=false,
                             pdfborder={0 0 0}]{hyperref}
+\hypersetup{bookmarksdepth}
+%-------------------------------------------------------------------------------														
 \usepackage[algoruled]{algorithm2e}
 %-------------------------------------------------------------------------------
 % Manage to do items
@@ -72,12 +79,6 @@
 \definecolor{mytealcolor}{RGB}{30,161,165}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% CONFIGURATION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\hypersetup{bookmarksdepth=3}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DEFINE NEW COMMANDS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -85,4 +86,19 @@
 % Math functions
 \newcommand{\func}[3]{{{#1}:{#2} \rightarrow {#3}}}
 \newcommand{\funcCall}[2]{{{\mathit{#1}}\left({#2}\right)}}
+% powerset
+\providecommand{\powerset}[1]{{\ensuremath \mathcal{P}\!\left({#1}\right)}}
+\renewcommand{\powerset}[1]{{\ensuremath \mathcal{P}\!\left({#1}\right)}}
+
+% Math sequences
+\newcommand{\kleenestar}[1]{{\ensuremath {#1}^{*}}}
+\newcommand{\emptysequence}{{\ensuremath \epsilon}}
+\newcommand{\sequence}[1]{{\ensuremath \langle #1 \rangle}}
+
+% Math sets
+\newcommand{\set}[1]{{\ensuremath \left\{ #1 \right\}}}
+
+% Theorems and proofs
+\providecommand{\qed}{\hfill\ensuremath{\filledsquare}}
+\renewcommand{\qed}{\hfill\ensuremath{\filledsquare}}
 %-------------------------------------------------------------------------------
