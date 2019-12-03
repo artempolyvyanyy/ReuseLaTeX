@@ -2,7 +2,7 @@
 % Improting useful packages and defining useful commands for LaTeX
 %
 % First created on: Nov 9, 2019
-% Last updated on:  Dec 2, 2019
+% Last updated on:  Dec 3, 2019
 % Prepared by Artem Polyvyanyy
 %
 % Email:    artem.polyvyanyy@gmail.com 
@@ -25,6 +25,9 @@
 \usepackage{mnsymbol}
 %-------------------------------------------------------------------------------
 \usepackage{paralist}
+%-------------------------------------------------------------------------------
+\usepackage{datetime}
+\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
 %-------------------------------------------------------------------------------
 \usepackage[pdfsubject={\articlesubjet},
                             pdftitle={\articletitle},
@@ -57,7 +60,7 @@
 \SetWatermarkHorCenter{153mm}
 \SetWatermarkVerCenter{240mm}
 \SetWatermarkLightness{0.6}
-\SetWatermarkText{Postprint, March 2019}
+\SetWatermarkText{Postprint, \monthyeardate\today}
 %-------------------------------------------------------------------------------
 % Manage referecnes
 % https://ctan.org/tex-archive/macros/latex/contrib/cleveref
@@ -102,3 +105,16 @@
 \providecommand{\qed}{\hfill\ensuremath{\filledsquare}}
 \renewcommand{\qed}{\hfill\ensuremath{\filledsquare}}
 %-------------------------------------------------------------------------------
+
+% Figure functions
+% Use: \fig{pos}{vspace(mm)}{scale}{trim(0 0 0 0)}{figure}{vspace(mm)}{Caption}{vspace(mm)}{fig:label}
+\newcommand{\fig}[9]{\begin{figure}[#1]
+\vspace{#2mm}
+\begin{center}
+	\includegraphics[scale=#3,trim=#4]{#5}
+\end{center}
+\vspace{#6mm}
+\caption{#7.}
+\vspace{-#8mm}
+\label{#9}
+\end{figure}}
