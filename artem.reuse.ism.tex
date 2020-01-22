@@ -2,26 +2,43 @@
 % Reusabe content for ISMs
 %
 % First created on: Dec 2, 2019
-% Last updated on:  Dec 2, 2019
+% Last updated on:  Jan 22, 2019
 % Prepared by Artem Polyvyanyy
 %
 % Email:    artem.polyvyanyy@gmail.com 
 % Homepage: http://polyvyanyy.com
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{ncdefine}{Information model}{def:data:model}{\quad\\}
-An \emph{information model} is a 4-tuple $(E,R,\rho,\Psi)$, where:
+\begin{ncdefine}{Information model}{def:info:model}{\quad\\}
+An \emph{information model} is a 5-tuple $(E,R,\rho,\eta,\Psi)$, where:
 \begin{compactitem}
 \item
 $E \subseteq \powerset{\identifiers}$ is a finite set of \emph{entity types};
 \item
 $R \subseteq \labels$ is a finite set of \emph{relation types};
 \item
-$\rho : R \rightarrow \kleenestar{E}$ is a \emph{relation definition function} that maps every relation type onto a finite sequence of entity types 
-for which it holds that for every $e \in E$ there exists $r \in R$, called the \emph{entity relation} of $e$, such that $\rho(r)=\sequence{e}$; and
+$\func{\rho}{R}{\kleenestar{E}}$ is a \emph{relation definition function} that maps every relation type onto a finite sequence of entity types;
 \item
-$\Psi$ is a collection of \emph{constraints} defined as a formal theory of the first-order logic statements over 
-a collection of predicates that for every $r \in R$ contains a predicate with the domain $\prod_{i=1}^{|\rho(r)|}{\rho(r)(i)}$. 
+$\func{\eta}{E}{R}$ is an \emph{entity relation definition function} that maps every entity type onto a relation type such that
+$\eta$ is injective and for every $e \in E$ it holds that $\funcCall{\rho}{\funcCall{\eta}{e}}=\sequence{e}$, $\funcCall{\eta}{e}$ is called the \emph{entity relation} of $e$;
+\item
+$\Psi$ is a collection of statements in first-order logic that for every $r \in R$, $n=|\funcCall{\rho}{r}|$, 
+(i) can use predicate $r$ over the domain $\identifiers^n$, called the \emph{relation predicate} of $r$, 
+and (ii) contains the statement:
+\[
+\mathop{\bigforall} i \in \identifiers^n \holds \left(\funcCall{r}{i(1),\ldots,i(n)} \implies \left(\bigwedge_{k=1}^{n} \funcCall{\funcCall{\eta}{\funcCall{\rho}{r}(k)}}{i(k)}\right)\right),
+\]
+%\[ deprecated formulation
+%\mathop{\bigforall}_{j=1}^{n} i_j \in \identifiers \holds \left(\funcCall{r}{i_1,\ldots,i_n} \implies \left(\bigwedge_{k=1}^{n} \funcCall{\funcCall{\eta}{\funcCall{\rho}{r}(k)}}{i_k}\right)\right),
+%\]
+called the \emph{relation predicate statement} of $r$.
 \hfill\ensuremath{\lrcorner}
 \end{compactitem}	
 \end{ncdefine}
+
+\begin{define}{Population, Fact}{def:info:model:population}{\quad\\}
+A \emph{population} of an information model $(E,R,\rho,\eta,\Psi)$ is a function $\func{\pi}{R}{\powerset{\bigcup_{n \in \natnum}{\identifiers^n}}}$
+such that every element in the population is correctly typed, \ie
+for every $r \in R$ it holds that $\funcCall{\pi}{r} \in \powerset{\prod_{i=1}^{|\funcCall{\rho}{r}|}{\!\funcCall{\rho}{r}(i)}}$.
+An element in $\funcCall{\pi}{r}$ is called a \emph{fact}.
+\end{define}

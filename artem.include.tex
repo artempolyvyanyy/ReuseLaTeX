@@ -1,8 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Improting useful packages and defining useful commands for LaTeX
 %
-% First created on: Nov 9, 2019
-% Last updated on:  Dec 4, 2019
+% First created on: Dec 2, 2019
+% Last updated on:  Jan 22, 2020
 % Prepared by Artem Polyvyanyy
 %
 % Email:    artem.polyvyanyy@gmail.com 
@@ -20,11 +20,28 @@
 %https://ctan.org/pkg/algorithm2e?lang=en
 \usepackage[algoruled,vlined,linesnumbered]{algorithm2e}
 %-------------------------------------------------------------------------------
+% https://ctan.org/pkg/amsmath?lang=en
+%
+% Recommended as an adjunct to serious mathematical typesetting in LATEX.
 \usepackage{amsmath}
+%-------------------------------------------------------------------------------
+% https://ctan.org/pkg/amsfonts?lang=en
+%
+% An extended set of fonts for use in mathematics, including: extra mathematical 
+% symbols; blackboard bold letters (uppercase only); fraktur letters; subscript 
+% sizes of bold math italic and bold Greek letters; subscript sizes of large 
+% symbols such as sum and product; added sizes of the Computer Modern small caps
+% font; cyrillic fonts (from the University of Washington); Euler mathematical 
+% fonts.
+\usepackage{amsfonts}
+%-------------------------------------------------------------------------------
+\usepackage{mdframed}
 %-------------------------------------------------------------------------------
 \usepackage{mnsymbol}
 %-------------------------------------------------------------------------------
+% https://ctan.org/pkg/paralist?lang=en
 \usepackage{paralist}
+\setdefaultleftmargin{1em}{1em}{1em}{1em}{1em}{1em}
 %-------------------------------------------------------------------------------
 \usepackage{datetime}
 \newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
@@ -54,11 +71,14 @@
 \urlstyle{same}
 %-------------------------------------------------------------------------------
 % TODO: check the usage
+\usepackage{mathtools} 
+%-------------------------------------------------------------------------------
+% TODO: check the usage
 \usepackage[firstpage]{draftwatermark}
 \SetWatermarkAngle{0}
 \SetWatermarkFontSize{10pt}
 \SetWatermarkHorCenter{153mm}
-\SetWatermarkVerCenter{240mm}
+\SetWatermarkVerCenter{247mm}
 \SetWatermarkLightness{0.6}
 \SetWatermarkText{Postprint, \monthyeardate\today}
 %-------------------------------------------------------------------------------
@@ -81,6 +101,9 @@
 \definecolor{mypurplecolor}{RGB}{86,35,132}
 \definecolor{mytealcolor}{RGB}{30,161,165}
 
+\newcommand{\redtext}[1]{\textcolor{myredcolor}{{#1}}}
+\newcommand{\bluetext}[1]{\textcolor{mybluecolor}{{#1}}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DEFINE NEW COMMANDS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -100,7 +123,12 @@
 %-------------------------------------------------------------------------------
 % Math functions
 \newcommand{\func}[3]{{{#1}:{#2} \rightarrow {#3}}}
-\newcommand{\funcCall}[2]{{{\mathit{#1}}\!\left({#2}\right)}}
+\newcommand{\funcCall}[2]{{\ensuremath {\mathit{#1}}_{\!}\left({#2}\right)}}
+\newcommand{\funcDomain}[1]{{\ensuremath {\mathit{dom}}_{\!}\left({#1}\right)}}
+\newcommand{\funcRange}[1]{{\ensuremath {\mathit{rng}}_{\!}\left({#1}\right)}}
+
+% Math intervals
+\newcommand{\intintervalcc}[2]{{\ensuremath \left[#1 \,..\, #2\right]}}
 
 % powerset
 \providecommand{\powerset}[1]{{\ensuremath \mathcal{P}\!\left({#1}\right)}}
@@ -119,7 +147,16 @@
 
 % Theorems and proofs
 \providecommand{\qed}{\hfill\ensuremath{\filledsquare}}
-\renewcommand{\qed}{\hfill\ensuremath{\filledsquare}}
+\renewcommand  {\qed}{\hfill\ensuremath{\filledsquare}}
+\providecommand{\holds}{\ensuremath :}
+\renewcommand	 {\holds}{\ensuremath :}
+\providecommand{\iff}{\ensuremath \Leftrightarrow}
+\renewcommand	 {\iff}{\ensuremath \Leftrightarrow}
+\providecommand{\implies}{\ensuremath \Rightarrow}
+\renewcommand	 {\implies}{\ensuremath \Rightarrow}
+\providecommand{\bigforall}{\ensuremath \mbox{\LARGE $\mathsurround0pt\forall$}}
+\renewcommand	 {\bigforall}{\ensuremath \mbox{\LARGE $\mathsurround0pt\forall$}}
+
 %-------------------------------------------------------------------------------
 
 % Figure functions
@@ -134,3 +171,5 @@
 \vspace{-#8mm}
 \label{#9}
 \end{figure}}
+
+
