@@ -2,7 +2,7 @@
 % Improting useful packages and defining useful commands for LaTeX
 %
 % First created on: Dec 2, 2019
-% Last updated on:  Mar 12, 2020
+% Last updated on:  Apr 8, 2020
 % Prepared by Artem Polyvyanyy
 %
 % Email:    artem.polyvyanyy@gmail.com 
@@ -126,26 +126,46 @@
 }
 
 %-------------------------------------------------------------------------------
+% Math symbols
+\providecommand{\bigsum}{\ensuremath \mbox{\LARGE $\mathsurround0pt\sum$}}
+\renewcommand	 {\bigsum}{\ensuremath \mbox{\LARGE $\mathsurround0pt\sum$}}
+
 % Math functions
 \newcommand{\func}[3]{{{#1}:{#2} \rightarrow {#3}}}
 \newcommand{\funcCall}[2]{{\ensuremath {\mathit{#1}}_{\!}\left({#2}\right)}}
 \newcommand{\funcDomain}[1]{{\ensuremath {\mathit{dom}}_{\!}\left({#1}\right)}}
 \newcommand{\funcRange}[1]{{\ensuremath {\mathit{rng}}_{\!}\left({#1}\right)}}
 
+% Math paired delimiters
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
 % Math intervals
 \newcommand{\intintervalcc}[2]{{\ensuremath \left[#1 \,..\, #2\right]}}
+\newcommand{\intervalcc}[2]{{\ensuremath \left[#1, #2\right]}}
 
-% powerset
+% Math powerset
 \providecommand{\powerset}[1]{{\ensuremath \mathcal{P}\!\left({#1}\right)}}
 \renewcommand{\powerset}[1]{{\ensuremath \mathcal{P}\!\left({#1}\right)}}
+
+% Math multiset
+\providecommand{\support}[1]{{\ensuremath \mathit{Supp}\left({#1}\right)}}
+\renewcommand{\support}[1]{{\ensuremath \mathit{Supp}\left({#1}\right)}}
+\providecommand{\cardinality}[1]{\ensuremath \left|{#1}\right|}
+\renewcommand{\cardinality}[1]{\ensuremath \left|{#1}\right|}
+\providecommand{\multiplicity}[2]{\ensuremath \funcCall{m_{#1}}{#2}}
+\renewcommand{\multiplicity}[2]{\ensuremath \funcCall{m_{#1}}{#2}}
+
+% Math sets
+\newcommand{\set}[1]{\ensuremath \{\splitatcommas{#1}\}}
+\newcommand{\setbuilder}[2]{\ensuremath \{ #1 \,|\, #2 \}}
 
 % Math sequences
 \newcommand{\kleenestar}[1]{{\ensuremath {#1}^{*}}}
 \newcommand{\emptysequence}{{\ensuremath \epsilon}}
 \newcommand{\sequence}[1]{\ensuremath \langle\splitatcommas{#1}\rangle}
-
-% Math sets
-\newcommand{\set}[1]{\ensuremath \{\splitatcommas{#1}\}}
+\newcommand{\seqLength}[1]{\ensuremath \left|{#1}\right|}
+\newcommand{\concat}[2]{\ensuremath #1 \circ #2}
 
 % Math tuple functions
 \newcommand{\pair}[2]{\ensuremath (\splitatcommas{#1, #2})}
@@ -173,7 +193,7 @@
 \end{center}
 \vspace{#6mm}
 \caption{#7.}
-\vspace{-#8mm}
+\vspace{#8mm}
 \label{#9}
 \end{figure}}
 
