@@ -2,7 +2,7 @@
 % Improting useful packages and defining useful commands for LaTeX
 %
 % First created on: Dec 2, 2019
-% Last updated on:  Apr 8, 2020
+% Last updated on:  Apr 19, 2020
 % Prepared by Artem Polyvyanyy
 %
 % Email:    artem.polyvyanyy@gmail.com 
@@ -58,8 +58,19 @@
 %-------------------------------------------------------------------------------
 % Manage to do items
 % https://ctan.org/pkg/todonotes?lang=en
-\usepackage[textsize=scriptsize]{todonotes} % backgroundcolor=yellow!40
-% \todo[inline]{...} - specify an inline todo comment
+\ifshowtodos
+\usepackage[textsize=scriptsize,colorinlistoftodos]{todonotes}
+\else
+\usepackage[textsize=scriptsize,colorinlistoftodos,disable]{todonotes} % disable all todo notes
+\fi
+% useful commands
+% \missingfigure{My comment} - specify a missing figure
+% \listoftodos - list all todos in the current document
+\let\todonote\todo
+\renewcommand{\todo}[2]{\todonote[inline,color=red!20]{TODO (#1): #2}}
+\newcommand{\done}[2]{\todonote[inline,color=green!20]{DONE (#1): #2}}
+\newcommand{\chat}[2]{\todonote[inline,color=black!20,nolist]{#1: #2}}
+\newcommand{\idea}[2]{\todonote[inline,color=blue!20,nolist]{IDEA (#1): #2}}
 %-------------------------------------------------------------------------------
 \usepackage{tikz,pgf,xcolor}
 \usetikzlibrary{arrows,automata,trees,plotmarks,shadows,shapes}
@@ -126,6 +137,9 @@
 }
 
 %-------------------------------------------------------------------------------
+% Arithmetic operations
+\newcommand{\mult}{{\ensuremath \,}}
+
 % Math symbols
 \providecommand{\bigsum}{\ensuremath \mbox{\LARGE $\mathsurround0pt\sum$}}
 \renewcommand	 {\bigsum}{\ensuremath \mbox{\LARGE $\mathsurround0pt\sum$}}
