@@ -2,11 +2,27 @@
 % Configuration constants
 %
 % First created on: Nov 9, 2019
-% Last updated on:  Jun 2, 2020
+% Last updated on:  Jun 26, 2020
 % Prepared by Artem Polyvyanyy
 %
 % Email:    artem.polyvyanyy@gmail.com 
 % Homepage: http://polyvyanyy.com
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% CONFIGURE DOCUMENTCLASS%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\icpm{%
+\documentclass[conference]{./tpl/icpm/IEEEtran}		% ICPM
+\bibliographystyle{./tpl/icpm/IEEEtran}
+}
+\def\article{%
+\documentclass{article}	 % article
+\setlength{\paperheight} {232.8mm}
+\setlength{\paperwidth}  {151.5mm}
+\setlength\voffset       {-23mm}
+\setlength\hoffset       {-34mm}
+\bibliographystyle{plain}
+}
+\csname\mode\endcsname
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Configure todo items
@@ -20,13 +36,6 @@
 \newcommand{\articletitle}   {An Article on an Important Topic}
 \newcommand{\articlesubjet}  {Computer Science, Process Mining, Process Querying, Information Systems}
 \newcommand{\articleauthors} {\authorartem}
-
-
-% Set page size (this is the size of an LNCS page)
-\setlength{\paperheight} {232.8mm}
-\setlength{\paperwidth}  {151.5mm}
-\setlength\voffset       {-23mm}
-\setlength\hoffset       {-34mm}
 
 % Set counters
 % The depth of the bookmarks
