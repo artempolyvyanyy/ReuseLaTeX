@@ -2,7 +2,7 @@
 % Improting useful packages and defining useful commands for LaTeX
 %
 % First created on: Dec 2, 2019
-% Last updated on:  Jul 19, 2020
+% Last updated on:  Aug 19, 2020
 % Prepared by Artem Polyvyanyy
 %
 % Email:    artem.polyvyanyy@gmail.com 
@@ -84,11 +84,6 @@
 % TODO: check the usage
 \usepackage{mathtools} 
 %-------------------------------------------------------------------------------
-% Font containing high quality icons of online academic profiles
-% https://ctan.org/pkg/academicons
-\usepackage{academicons}
-\definecolor{orcidlogocol}{HTML}{A6CE39}
-%-------------------------------------------------------------------------------
 % Manage referecnes
 % https://ctan.org/tex-archive/macros/latex/contrib/cleveref
 \usepackage[capitalise,nameinlink]{cleveref}
@@ -160,6 +155,8 @@
 \renewcommand{\cardinality}[1]{\ensuremath \left|{#1}\right|}
 \providecommand{\multiplicity}[2]{\ensuremath \funcCall{m_{#1}}{#2}}
 \renewcommand{\multiplicity}[2]{\ensuremath \funcCall{m_{#1}}{#2}}
+ \newcommand{\mset}[1] {\ensuremath [\splitatcommas{#1}]}
+\newcommand{\msetel}[2]{{\ensuremath {{#1}^{#2}}}}
 
 % Math sets
 \newcommand{\set}[1]{\ensuremath \{\splitatcommas{#1}\}}
