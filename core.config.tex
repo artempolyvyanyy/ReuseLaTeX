@@ -2,7 +2,7 @@
 % Configuration constants
 %
 % First created on: Nov 9, 2019
-% Last updated on:  Jul 19, 2020
+% Last updated on:  Oct 2020, 2020
 % Prepared by Artem Polyvyanyy
 %
 % Email:    artem.polyvyanyy@gmail.com 
@@ -18,6 +18,21 @@
 \SetWatermarkFontSize{12pt}
 \SetWatermarkHorCenter{170.5mm}
 \SetWatermarkVerCenter{264mm}
+\SetWatermarkLightness{0.6}
+\SetWatermarkText{Draft{,} \monthyeardate\today}
+}
+\def\lncs{% lnbip
+\documentclass[runningheads,orivec]{./tpl/lncs/llncs}		% LNCS, LNBIP
+\setlength{\paperheight}{232.8mm}
+\setlength{\paperwidth}{151.5mm}
+\setlength\voffset     {-23mm}
+\setlength\hoffset     {-34mm}
+\bibliographystyle{./tpl/lncs/splncs04}
+\usepackage[firstpage]{draftwatermark}
+\SetWatermarkAngle{0}
+\SetWatermarkFontSize{10pt}
+\SetWatermarkHorCenter{153mm}
+\SetWatermarkVerCenter{240mm}
 \SetWatermarkLightness{0.6}
 \SetWatermarkText{Draft{,} \monthyeardate\today}
 }
