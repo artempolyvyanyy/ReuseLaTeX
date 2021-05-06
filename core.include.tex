@@ -2,7 +2,7 @@
 % Improting useful packages and defining useful commands for LaTeX
 %
 % First created on: Dec 2, 2019
-% Last updated on:  Aug 19, 2020
+% Last updated on:  May 6, 2021
 % Prepared by Artem Polyvyanyy
 %
 % Email:    artem.polyvyanyy@gmail.com 
@@ -36,8 +36,6 @@
 \usepackage{amsfonts}
 %-------------------------------------------------------------------------------
 \usepackage{mdframed}
-%-------------------------------------------------------------------------------
-\usepackage{mnsymbol}
 %-------------------------------------------------------------------------------
 % https://ctan.org/pkg/paralist?lang=en
 \usepackage{paralist}
@@ -159,8 +157,8 @@
 \newcommand{\msetel}[2]{{\ensuremath {{#1}^{#2}}}}
 
 % Math sets
-\newcommand{\set}[1]{\ensuremath \{\splitatcommas{#1}\}}
-\newcommand{\setbuilder}[2]{\ensuremath \{ #1 \,|\, #2 \}}
+\newcommand{\set}[1]{\ensuremath \left\{\splitatcommas{#1}\right\}}
+\newcommand{\setbuilder}[2]{\ensuremath \left\{ #1 \,|\, #2 \right\}}
 
 % Math sequences
 \newcommand{\kleenestar}[1]{{\ensuremath {#1}^{*}}}
