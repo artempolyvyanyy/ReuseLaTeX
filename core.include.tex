@@ -2,7 +2,7 @@
 % Improting useful packages and defining useful commands for LaTeX
 %
 % First created on: Dec 2, 2019
-% Last updated on:  May 6, 2021
+% Last updated on:  July 10, 2021
 % Prepared by Artem Polyvyanyy
 %
 % Email:    artem.polyvyanyy@gmail.com 
@@ -13,6 +13,29 @@
 % USE PACKAGES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%-------------------------------------------------------------------------------
+% A comprehensive (SI) units package
+% https://ctan.org/pkg/siunitx?lang=en
+\usepackage{siunitx}
+\sisetup{
+group-separator={,},
+round-mode=places,
+round-precision=3,
+table-format=1.3,
+}
+%-------------------------------------------------------------------------------
+% Useful table packages
+% booktabs - the package enhances the quality of tables
+% https://ctan.org/pkg/booktabs?lang=en
+% multirow - create tabular cells spanning multiple rows
+% https://ctan.org/pkg/multirow?lang=en
+\usepackage{booktabs}
+\usepackage{multirow}
+%-------------------------------------------------------------------------------
+% The package typesets fractions “nicely” — in the form ‘a/b’
+% https://ctan.org/pkg/nicefrac?lang=en
+% USAGE: $\nicefrac{1}{2}$
+\usepackage{nicefrac}
 %-------------------------------------------------------------------------------
 % https://en.wikibooks.org/wiki/LaTeX/Colors
 \usepackage[usenames,dvipsnames]{xcolor}
@@ -196,5 +219,36 @@
 \vspace{#8mm}
 \label{#9}
 \end{figure}}
+
+%-------------------------------------------------------------------------------
+
+% An initial attempt to fix orphan lines in a pargraph
+\newcommand\fixit[2][.05]{%
+  \setbox0=\hbox{\hspace{\parindent}#2}\fixithelp{#1}{#2}}
+\newcommand\fixithelp[2]{%
+  \wd0=\dimexpr\wd0-\linewidth\relax%
+  \ifdim\wd0>0pt\relax%
+    \fixithelp{#1}{#2}%
+  \else%
+    \wd0=\dimexpr\wd0+\linewidth\relax
+    \ifdim\wd0>.9\linewidth\relax%
+      {\parfillskip0pt\relax#2\par}%
+    \else%
+      \ifdim\wd0>.8\linewidth\relax%
+        {\parfillskip0pt\relax#2\hspace{.2\linewidth}\par}%
+      \else%
+        \ifdim\wd0<#1\linewidth\relax%
+          {\parfillskip0pt\relax#2\par}%
+        \else%
+          \ifdim\wd0<.2\linewidth\relax%
+            {\parfillskip0pt\relax#2\hspace{.8\linewidth}\mbox{}\par}%
+          \else%
+            #2%
+          \fi
+        \fi
+      \fi
+    \fi
+  \fi%
+}
 
 
