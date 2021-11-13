@@ -1,0 +1,32 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Reusabe content on automata
+%
+% First created on: Nov 13, 2021
+% Last updated on:  Nov 13, 2021
+
+% Prepared by Artem Polyvyanyy
+% Email:    artem.polyvyanyy@gmail.com 
+% Homepage: http://polyvyanyy.com
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% core.reuse.automata
+% Classical definition of DFA
+\begin{ncdefine}{Deterministic Finite Automata}{def:DFAs}{\quad\\}
+A \emph{deterministic finite automaton} (DFA) is a tuple $\tuple{Q,\actions,\delta,q_0,A}$, where:
+\begin{compactitem}
+\item
+$Q$ is a finite set of \emph{states};
+\item
+$\actions$ is a finite set of actions, called the \emph{alphabet};
+\item
+$\func{\delta}{Q \times \actions}{Q}$ is the \emph{transition function};
+\item
+$q_0 \in Q$ is the \emph{start state}; and
+\item
+$A \subseteq Q$ is the set of \emph{accept states}.
+\hfill\ensuremath{\lrcorner}
+\end{compactitem}
+\end{ncdefine}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
