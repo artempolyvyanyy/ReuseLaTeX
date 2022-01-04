@@ -1,0 +1,39 @@
+\begin{figure}[h!]
+\begin{center}
+\vspace{-3mm}
+\begin{tikzpicture}[scale=0.65, transform shape, ->, >=stealth', shorten >=1pt, auto, node distance=20mm, on grid, semithick, transition/.style={fill=red!10, draw, minimum size=9mm, drop shadow}, place/.style={fill=blue!10, draw, circle, minimum size=9mm, drop shadow}]
+
+\node[place,label=90:\small $p_0$]				(p0) 											{\Large $\bullet$};
+\node[transition,label=90:\small $t_0$]		(t0) [right=of p0] 				{\Large $\texttt{a}$};
+\node[place,label=90:\small $p1$] 				(p1) [above right=of t0]	{};
+\node[place,label=270:\small $p_2$] 			(p2) [below right=of t0]	{};
+\node[transition,label=90:\small $t_1$] 	(t1) [right=of p1]				{\Large $\texttt{b}$};
+\node[transition,label=270:\small $t_3$] 	(t3) [right=of p2]				{\Large $\texttt{c}$};
+\node[transition,label=0:\small $t_2$] 		(t2) [below right=of p1,xshift=17pt]				{\Large $\texttt{d}$};
+\node[place,label=90:\small $p3$] 				(p3) [right=of t1]				{};
+\node[place,label=270:\small $p4$] 				(p4) [right=of t3]				{};
+\node[transition,label=90:\small $t_4$] 	(t4) [below right=of p3]	{\Large $\texttt{e}$};
+\node[place,label=90:\small $p5$] 				(p5) [right=of t4]				{};
+
+\path (p0) edge node {} (t0)
+			(t0) edge node {} (p1)
+					 edge node {} (p2)
+			(p1) edge node {} (t1)
+			(p2) edge node {} (t3)
+			(t1) edge node {} (p3)
+			(t3) edge node {} (p4)
+			(t2) edge node {} (p1)
+					 edge node {} (p2)
+			(p3) edge node {} (t2)
+					 edge node {} (t4)
+			(p4) edge node {} (t2)
+					 edge node {} (t4)
+			(t4) edge node {} (p5)
+;
+\end{tikzpicture}
+\vspace{-2mm}
+\caption{A Petri net.}
+\label{fig:petri:net}
+\vspace{-2mm}
+\end{center}
+\end{figure}

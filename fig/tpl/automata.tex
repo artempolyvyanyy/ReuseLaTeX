@@ -1,0 +1,25 @@
+\begin{figure}[h!]
+\begin{center}
+\vspace{-5mm}
+\begin{tikzpicture}[scale=0.65, transform shape, ->, >=stealth', shorten >=1pt, auto, initial text=, node distance=20mm, on grid, semithick, every state/.style={fill=orange!20, draw, circular drop shadow, text=black, minimum size=9mm}]
+\node[initial,state,label=270:$s_0$]	(s0) 											{$0$};
+\node[state,label=270:$s_1$]					(s1) [right=of s0] 				{$0$};
+\node[state,label=0:$s_2$]						(s2) [above right=of s1]	{$0$};
+\node[state,label=270:$s_3$] 					(s3) [below right=of s2]	{$0$};
+\node[state,label=0:$s_4$] 					  (s4) [below right=of s1]	{$\nicefrac{1}{5}$};
+\node[state,label=270:$s_5$] 				  (s5) [right=of s3]				{$1$};
+
+\path (s0) edge node {$\texttt{a}(1)$} (s1)
+			(s1) edge node {$\texttt{b}(\nicefrac{1}{2})$} (s2)
+			     edge node[below, xshift=-14pt, yshift=-2pt] {$\texttt{c}(\nicefrac{1}{2})$} (s4)
+			(s2) edge node {$\texttt{c}(1)$} (s3)
+			(s3) edge node[above]  {$\texttt{d}(\nicefrac{1}{2})$} (s1)
+					 edge node {$\texttt{e}(\nicefrac{1}{2})$} (s5)
+			(s4) edge node[below, xshift=16pt, yshift=-2pt] {$\texttt{b}(\nicefrac{4}{5})$} (s3);
+\end{tikzpicture}
+\vspace{-2mm}
+\caption{An SDFA.}
+\label{fig:SDFA}
+\vspace{-4mm}
+\end{center}
+\end{figure}
