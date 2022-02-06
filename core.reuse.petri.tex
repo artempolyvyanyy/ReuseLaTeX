@@ -1,0 +1,40 @@
+A Petri net is a model of a distributed system~\cite{Reisig98}.
+
+\begin{define}{Petri net}{def:petri:net}{\quad\\}
+A \emph{(labeled) Petri net}, or a \emph{net}, $N$ is a quintuple $\tuple{P,T,F,\Lambda,\lambda}$, where
+$P$ is a finite set of \emph{places},
+$T$ is a finite set of \emph{transitions},
+$F \subseteq (P \times T) \cup (T \times P)$ is the \emph{flow relation},
+$\Lambda$ is a set of \emph{labels}, such that $\tau \in \Lambda$ is the \emph{silent label} and sets $P$, $T$, and $\Lambda$ are pairwise disjoint, and 
+$\func{\lambda}{T}{\Lambda}$ is the \emph{labeling function}.
+\end{define}
+
+\noindent
+If $\funcCall{\lambda}{t}=\tau$, $t \in T$, then $t$ is \emph{silent}; otherwise $t$ is \emph{observable}.
+Observable transitions represent activities from the problem domain, whereas silent transitions encode internal actions of the system. 
+A \emph{marking} of a net encodes its state.
+
+\begin{define}{Marking}{def:marking}{\quad\\}
+A \emph{marking} $M$ of a net $\tuple{P,T,F,\Lambda,\lambda}$ is a multiset over places $P$.
+\end{define}
+
+\noindent
+A net system is a net with an initial and final markings.
+
+\begin{define}{Net system}{def:net:system}{\quad\\}
+A \emph{net system}, or a \emph{system}, $S$ is a triple $\tuple{N,M_{\mathit{ini}},M_{\mathit{fin}}}$, where 
+$N=\tuple{P,T,F,\Lambda,\lambda}$ is a net,
+$M_{\mathit{ini}}$ is the \emph{initial marking} of $N$, and 
+$M_{\mathit{fin}}$ is the \emph{final marking} of $N$.
+\end{define}
+
+\noindent
+Let $N=\tuple{P,T,F,\Lambda,\lambda}$ be a net.
+A transition $t \in T$ is \emph{enabled} in a marking $M$ of $N$, denoted by $\enabled{N}{M}{t}$, if every \emph{input place} of $t$ contains at least one token, \ie 
+$\predicate{\forall}{p \in \setbuilder{x \in P}{(x,t) \in F}}{\funcCall{M}{p} > 0}$. 
+An enabled transition $t \in T$ can \emph{occur}.
+An occurrence of $t$ \emph{leads to} a fresh marking $M' = (M \setminus \setbuilder{x \in P}{(x,t) \in F}) \uplus \setbuilder{y \in P}{(t,y) \in F}$ of $N$, denoted by $\occurrence{N}{M}{t}{M'}$.
+
+A finite sequence of transitions $\sigma=\sequence{t_1,t_2,\ldots,t_n} \in \kleenestar{T}$, $n \in \natnumwithzero$, is an \emph{occurrence sequence} of a net $N$ at marking $M$, if $\sigma$ is empty or there exists a sequence of markings $\sequence{M_0,M_1,\ldots,M_n}$, such that $M_0=M$ and for every position $i \in \intintervalcc{1}{n}$ in $\sigma$ it holds that $\occurrence{N}{M_{i-1}}{t_i}{M_i}$.
+We say that $\sigma$ \emph{leads $N$ from $M$ to $M_n$} and denote this fact by $\leadsfromto{N}{M}{\sigma}{M_n}$.
+Finally, $\sigma$ is an \emph{execution} of a net system $\tuple{N,M_\mathit{ini},M_\mathit{fin}}$ if $\sigma$ leads $N$ from $M_\mathit{ini}$ to $M_\mathit{fin}$.

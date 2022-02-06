@@ -179,7 +179,7 @@ table-format=1.3,
 \renewcommand{\cardinality}[1]{\ensuremath \left|{#1}\right|}
 \providecommand{\multiplicity}[2]{\ensuremath \funcCall{m_{#1}}{#2}}
 \renewcommand{\multiplicity}[2]{\ensuremath \funcCall{m_{#1}}{#2}}
- \newcommand{\mset}[1] {\ensuremath [\splitatcommas{#1}]}
+\newcommand{\mset}[1] {\ensuremath [\splitatcommas{#1}]}
 \newcommand{\msetel}[2]{{\ensuremath {{#1}^{#2}}}}
 
 % Math sets
@@ -196,6 +196,14 @@ table-format=1.3,
 % Math tuple functions
 \newcommand{\pair}[2]{\ensuremath \left(\splitatcommas{#1, #2}\right)}
 \newcommand{\tuple}[1]{\ensuremath \left(\splitatcommas{#1}\right)}
+
+% Petri nets
+\newcommand{\enabled}[3]{\ensuremath \pair{#1}{#2}\left[#3\right\rangle}
+\newcommand{\occurrence}[4]{\ensuremath \pair{#1}{#2}\left[#3\right\rangle\pair{#1}{#4}}
+\newcommand{\leadsfromto}[4]{\ensuremath \pair{#1}{#2}\left[#3\right\rangle\pair{#1}{#4}}
+
+% Predicates
+\newcommand{\predicate}[3]{\ensuremath #1 \, #2 : #3}
 
 % Theorems and proofs
 \providecommand{\qed}{\hfill\ensuremath{\filledsquare}}
