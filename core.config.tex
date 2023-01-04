@@ -54,6 +54,27 @@
 \SetWatermarkLightness{0.6}
 \SetWatermarkText{Draft{,} {\monthyeardate\today}}
 }
+\def\tkde{%
+\documentclass[10pt,journal,compsoc]{./tpl/tkde/IEEEtran} % TKDE
+\bibliographystyle{./tpl/tkde/IEEEtran}
+\renewcommand{\citepunct}{,\penalty\citepunctpenalty\,}
+\renewcommand{\citedash}{--}% optionally
+\ifCLASSOPTIONcompsoc
+  % The IEEE Computer Society needs nocompress option
+  % requires cite.sty v4.0 or later (November 2003)
+  \usepackage[nocompress]{cite}
+\else
+  % normal IEEE
+  \usepackage{cite}
+\fi
+\usepackage[firstpage]{draftwatermark}
+\SetWatermarkAngle{0}
+\SetWatermarkFontSize{12pt}
+\SetWatermarkHorCenter{170.5mm}
+\SetWatermarkVerCenter{264mm}
+\SetWatermarkLightness{0.6}
+\SetWatermarkText{Draft{,} \monthyeardate\today}
+}
 \csname\mode\endcsname
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
