@@ -1,0 +1,79 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Style
+%
+% First created on: Jan 5, 2023
+% Last updated on:  Jan 5, 2023
+
+% Artem Polyvyanyy
+% Email:    artem.polyvyanyy@gmail.com 
+% Homepage: http://polyvyanyy.com
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% CONFIGURE DOCUMENTCLASS%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\icpm{%
+\documentclass[conference]{./tpl/icpm/IEEEtran} % ICPM
+\bibliographystyle{./tpl/icpm/IEEEtran}
+\usepackage[noadjust]{cite}	% fix citations form [1],[2],[3] to [1-3].
+\renewcommand{\citepunct}{,\penalty\citepunctpenalty\,}
+\renewcommand{\citedash}{--}% optionally
+\usepackage[firstpage]{draftwatermark}
+\SetWatermarkAngle{0}
+\SetWatermarkFontSize{12pt}
+\SetWatermarkHorCenter{170.5mm}
+\SetWatermarkVerCenter{264mm}
+\SetWatermarkLightness{0.6}
+\SetWatermarkText{Draft{,} \monthyeardate\today}
+}
+\def\lncs{% lnbip
+\documentclass[runningheads,orivec]{./tpl/lncs/llncs}		% LNCS, LNBIP
+\setlength{\paperheight}{232.8mm}
+\setlength{\paperwidth}{151.5mm}
+\setlength\voffset     {-21mm}
+\setlength\hoffset     {-34mm}
+\bibliographystyle{./tpl/lncs/splncs04}
+\usepackage[firstpage]{draftwatermark}
+\SetWatermarkAngle{0}
+\SetWatermarkFontSize{10pt}
+\SetWatermarkHorCenter{153mm}
+\SetWatermarkVerCenter{240mm}
+\SetWatermarkLightness{0.6}
+\SetWatermarkText{Draft{,} \monthyeardate\today}
+}
+\def\article{%
+\documentclass{article}	 % article
+\setlength{\paperheight} {232.8mm}
+\setlength{\paperwidth}  {151.5mm}
+\setlength\voffset       {-26mm}
+\setlength\hoffset       {-32mm}
+\bibliographystyle{plain}
+\usepackage[firstpage]{draftwatermark}
+\SetWatermarkAngle{0}
+\SetWatermarkFontSize{10pt}
+\SetWatermarkHorCenter{153mm}
+\SetWatermarkVerCenter{247mm}
+\SetWatermarkLightness{0.6}
+\SetWatermarkText{Draft{,} {\monthyeardate\today}}
+}
+\def\tkde{%
+\documentclass[10pt,journal,compsoc]{./tpl/tkde/IEEEtran} % TKDE
+\bibliographystyle{./tpl/tkde/IEEEtran}
+\renewcommand{\citepunct}{,\penalty\citepunctpenalty\,}
+\renewcommand{\citedash}{--}% optionally
+\ifCLASSOPTIONcompsoc
+  % The IEEE Computer Society needs nocompress option
+  % requires cite.sty v4.0 or later (November 2003)
+  \usepackage[nocompress]{cite}
+\else
+  % normal IEEE
+  \usepackage{cite}
+\fi
+\usepackage[firstpage]{draftwatermark}
+\SetWatermarkAngle{0}
+\SetWatermarkFontSize{12pt}
+\SetWatermarkHorCenter{182mm}
+\SetWatermarkVerCenter{269mm}
+\SetWatermarkLightness{0.6}
+\SetWatermarkText{Draft{,} \monthyeardate\today}
+}
+\csname\mode\endcsname
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

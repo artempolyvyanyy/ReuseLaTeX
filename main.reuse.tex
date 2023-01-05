@@ -2,48 +2,45 @@
 % An empty LaTeX project with useful packages and commands
 %
 % First created on: Nov 9, 2019
-% Last updated on:  Jan 4, 2023
+% Last updated on:  Jan 5, 2023
 % Prepared by Artem Polyvyanyy
 %
 % Email:    artem.polyvyanyy@gmail.com 
 % Homepage: http://polyvyanyy.com
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\def\mode{tkde}
-\input{core.config}
-
-\input{core.include}
+\def\mode{article}
+\input{core.style}
 \input{core.constants}
+\input{core.config}
+\input{core.include}
 \input{core.thm.env}
 
-\title{\articletitle}
+% TODO: CONFIGURE core.config.tex USING CONSTANTS IN core.constants.tex
 
-\date{\today}
-
-\author{\authorartem~\orcidartem}
-
-\begin{document}
-
-\maketitle
+% Import extra packages
+\usepackage{subfig}
+\usepackage{txfonts} %times
+\usepackage{lipsum}
+\usepackage{adjustbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{abstract}
-Adapted from Springer: An effective title should convey the main topics of the study, highlight the importance of the research, be concise, and attract readers.
-To compose a good title, list all the topics/contributions of the paper using as few words as possible and include all the most relevant ones in the title.
-A long title will appear clumsy and annoy readers.
-\end{abstract}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{core.frontmatter}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Example use of todo commands
 \todo{Artem}{Briefly discuss the research area of process mining.}
-\chat{Artem}{To accomplish this task, read~\cite{Aalst2016}.}
+\chat{Artem}{To accomplish this task, read~\cite{DBLP:books/sp/22/P2022}.}
 \chat{Author}{Thanks, I will do that!}
-
 \done{Author}{Briefly discuss the research area of process mining.}
+
+Use the \change{from}{to} command (see \texttt{core.config.txt}) to track changes, where ``from'' is the old text and ``to'' is the new text. Uncomment one of the three versions of the command to suit your purpose.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 \label{sec:introduction}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\emph{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Write an introduction following the ``funnel'' principle; that is, start with general ideas and gradually specify those into concrete contributions. In the first paragraph, introduce the research area. Use this first paragraph to capture the attention of a \emph{broad audience}. If the reader can not relate to the research area, they will most likely stop reading the paper here. In the second paragraph, introduce the \emph{problem}/\emph{research question(s)} tackled in the paper. Then, list the \emph{requirements} ($R1$, $R2$, and $R3$) for the solution to the problem proposed in this paper and discuss why they are reasonable; unrealistic requirements will diminish the value of the contribution. In the third paragraph, clearly state the \emph{contributions} as you, the author(s), understand them; a bullet point list can be an effective way to present the contributions. Emphasize the \emph{novelty} and \emph{usefulness} of the contributions. Finally, in the last paragraph, introduce the structure of the paper by unveiling the content of the subsequent sections.
 
@@ -92,14 +89,13 @@ It is ideal if, through the discussions of this section, you identify existing s
 \section{Conclusion}
 \label{sec:conclusion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliography{bibliography}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\input{core.reuse.ism}
-
-\bibliography{bibliography}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \listoftodos
-
-\end{document} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

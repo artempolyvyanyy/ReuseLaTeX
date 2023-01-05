@@ -2,9 +2,9 @@
 % Improting useful packages and defining useful commands for LaTeX
 %
 % First created on: Dec 2, 2019
-% Last updated on:  Nov 13, 2021
-
-% Prepared by Artem Polyvyanyy
+% Last updated on:  Jan 5, 2023
+% 
+% Artem Polyvyanyy
 % Email:    artem.polyvyanyy@gmail.com 
 % Homepage: http://polyvyanyy.com
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -13,9 +13,9 @@
 % USE PACKAGES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%-------------------------------------------------------------------------------
 %\usepackage{amsthm}
 %\usepackage{amssymb}
-
 %-------------------------------------------------------------------------------
 % A comprehensive (SI) units package
 % https://ctan.org/pkg/siunitx?lang=en
@@ -39,6 +39,9 @@ table-format=1.3,
 % https://ctan.org/pkg/nicefrac?lang=en
 % USAGE: $\nicefrac{1}{2}$
 \usepackage{nicefrac}
+%-------------------------------------------------------------------------------
+% https://ctan.org/pkg/ifthen?lang=en
+\usepackage{ifthen}
 %-------------------------------------------------------------------------------
 % https://en.wikibooks.org/wiki/LaTeX/Colors
 \usepackage[usenames,dvipsnames]{xcolor}
@@ -70,14 +73,6 @@ table-format=1.3,
 \usepackage{datetime}
 \newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
 %-------------------------------------------------------------------------------
-\usepackage[pdfsubject={\articlesubjet},
-                            pdftitle={\articletitle},
-                            pdfauthor={\articleauthors},
-                            pdfkeywords={\articlesubjet},
-                            colorlinks=false,
-                            pdfborder={0 0 0}]{hyperref}
-\hypersetup{bookmarksdepth}
-%-------------------------------------------------------------------------------														
 \usepackage[algoruled]{algorithm2e}
 %-------------------------------------------------------------------------------
 % Manage to do items
@@ -108,9 +103,12 @@ table-format=1.3,
 % TODO: check the usage
 \usepackage{mathtools} 
 %-------------------------------------------------------------------------------
-% Manage referecnes
+% Manage references
 % https://ctan.org/tex-archive/macros/latex/contrib/cleveref
 \usepackage[capitalise,nameinlink]{cleveref}
+%-------------------------------------------------------------------------------
+% Flow text around small figures
+\usepackage{wrapfig}
 %-------------------------------------------------------------------------------
 
 % Can be useful
@@ -148,7 +146,7 @@ table-format=1.3,
 
 %-------------------------------------------------------------------------------
 % Arithmetic operations
-\newcommand{\mult}{{\ensuremath \,}}
+\newcommand{\mult}{{\ensuremath \,\cdot\,}}
 
 % Math symbols
 \providecommand{\bigsum}{\ensuremath \mbox{\LARGE $\mathsurround0pt\sum$}}
@@ -179,12 +177,17 @@ table-format=1.3,
 \renewcommand{\cardinality}[1]{\ensuremath \left|{#1}\right|}
 \providecommand{\multiplicity}[2]{\ensuremath \funcCall{m_{#1}}{#2}}
 \renewcommand{\multiplicity}[2]{\ensuremath \funcCall{m_{#1}}{#2}}
-\newcommand{\mset}[1] {\ensuremath [\splitatcommas{#1}]}
+ \newcommand{\mset}[1] {\ensuremath [\splitatcommas{#1}]}
 \newcommand{\msetel}[2]{{\ensuremath {{#1}^{#2}}}}
 
 % Math sets
 \newcommand{\set}[1]{\ensuremath \left\{\splitatcommas{#1}\right\}}
 \newcommand{\setbuilder}[2]{\ensuremath \left\{ #1 \,|\, #2 \right\}}
+
+% Math tuple functions
+\newcommand{\pair}[2]{\ensuremath \left(\splitatcommas{#1, #2}\right)}
+\newcommand{\triple}[3]{\ensuremath \left(\splitatcommas{#1, #2, #3}\right)}
+\newcommand{\tuple}[1]{\ensuremath \left(\splitatcommas{#1}\right)}
 
 % Math sequences
 \newcommand{\kleenestar}[1]{{\ensuremath {#1}^{*}}}
@@ -192,10 +195,10 @@ table-format=1.3,
 \newcommand{\sequence}[1]{\ensuremath \langle\splitatcommas{#1}\rangle}
 \newcommand{\seqLength}[1]{\ensuremath \left|{#1}\right|}
 \newcommand{\concat}[2]{\ensuremath #1 \circ #2}
-
-% Math tuple functions
-\newcommand{\pair}[2]{\ensuremath \left(\splitatcommas{#1, #2}\right)}
-\newcommand{\tuple}[1]{\ensuremath \left(\splitatcommas{#1}\right)}
+\newcommand{\subseq}[3]{\ensuremath \funcCall{subseq}{#1, #2, #3}}
+\newcommand{\subseqid}[3]{\ensuremath \triple{#1}{#2}{#3}}
+\newcommand{\crossover}[3]{\ensuremath #1 \,\otimes\, #2 \,=\, #3}
+\newcommand{\crossoverop}[2]{\ensuremath #1 \otimes #2}
 
 % Petri nets
 \newcommand{\enabled}[3]{\ensuremath \pair{#1}{#2}\left[#3\right\rangle}
@@ -216,6 +219,10 @@ table-format=1.3,
 \renewcommand	 {\implies}{\ensuremath \Rightarrow}
 \providecommand{\bigforall}{\ensuremath \mbox{\LARGE $\mathsurround0pt\forall$}}
 \renewcommand	 {\bigforall}{\ensuremath \mbox{\LARGE $\mathsurround0pt\forall$}}
+
+% Logs
+\newcommand{\action}[1]{\texttt{#1}}
+\newcommand{\trace}[1]{\texttt{#1}}
 
 %-------------------------------------------------------------------------------
 
@@ -262,5 +269,3 @@ table-format=1.3,
     \fi
   \fi%
 }
-
-

@@ -1,0 +1,83 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title
+%
+% First created on: Jan 5, 2023
+% Last updated on:  Jan 5, 2023
+
+% Artem Polyvyanyy
+% Email:    artem.polyvyanyy@gmail.com 
+% Homepage: http://polyvyanyy.com
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Default commands
+\newcommand{\paragraphstart}[2]{{#1}{#2}}
+
+% ARTICLE
+\ifthenelse{\equal{\mode}{article}}{%
+\date{\today}
+\title{\articletitle}
+\author{\articleauthor}
+\maketitle
+\begin{abstract}
+\input{abstract}
+
+\smallskip
+\noindent
+\textbf{Keywords:} \articlekeyword
+\end{abstract}
+}%
+{%
+% LNCS, LNBIP
+\ifthenelse{\equal{\mode}{lncs}}{%
+\date{\today}
+\title{\articletitle}
+\titlerunning{\articletitlerunning}
+\author{\articleauthor}
+\authorrunning{\articleauthorrunning}
+\institute{\articleaffiliation}
+\maketitle
+\begin{abstract}
+\input{abstract}
+
+\smallskip
+\noindent
+\textbf{Keywords:} \articlekeyword
+\end{abstract}
+}%
+{%
+% ICPM
+\ifthenelse{\equal{\mode}{icpm}}{%
+\date{\today}
+\title{\articletitle}
+\author{\articleauthor}
+\maketitle
+\begin{abstract}
+\input{abstract}
+
+\smallskip
+\noindent
+\textbf{Keywords:} \articlekeyword
+\end{abstract}
+}%
+{%
+\ifthenelse{\equal{\mode}{tkde}}{%
+\renewcommand{\paragraphstart}[2]{\IEEEPARstart{#1}{#2}}
+\title{\articletitle}
+\date{\today}
+\author{\articleauthor}
+\IEEEtitleabstractindextext{%
+\begin{abstract}
+\input{abstract}
+\end{abstract}
+\begin{IEEEkeywords} % Note that keywords are not normally used for peerreview papers.
+\articlekeyword
+\end{IEEEkeywords}}
+\maketitle
+}
+{}}}}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
