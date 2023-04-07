@@ -1,13 +1,13 @@
 
-main.aux
-main.bbl
-main.blg
-main.log
-main.out
-main.pdf
-main.synctex
-main.tps
-main.tdo
+main.reuse.aux
+main.reuse.bbl
+main.reuse.blg
+main.reuse.log
+main.reuse.out
+main.reuse.pdf
+main.reuse.synctex
+main.reuse.tps
+main.reuse.tdo
 *.tmp
 main.synctex(busy)
 main.synctex.gz
