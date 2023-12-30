@@ -3,11 +3,7 @@
 % An empty LaTeX project with useful packages and commands
 %
 % First created on: Nov 9, 2019
-% Last updated on:  Jan 5, 2023
-% Prepared by Artem Polyvyanyy
-%
-% Email:    artem.polyvyanyy@gmail.com 
-% Homepage: http://polyvyanyy.com
+% Last updated on:  Dec 30, 2023
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \def\mode{lncs}
 \input{core.style}
@@ -23,7 +19,6 @@
 \usepackage{txfonts} %times
 \usepackage{lipsum}
 \usepackage{adjustbox}
-\usepackage[square,sort,comma,numbers]{natbib}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -33,7 +28,7 @@
 
 % Example use of todo commands
 \todo{Artem}{Briefly discuss the research area of process mining.}
-\chat{Artem}{To accomplish this task, read~\cite{DBLP:books/sp/22/P2022}.}
+\chat{Artem}{To accomplish this task, read~\cite{PolyvyanyyPQM2022}.}
 \chat{Author}{Thanks, I will do that!}
 \done{Author}{Briefly discuss the research area of process mining.}
 
@@ -62,7 +57,7 @@ This discussion on the background of your work can be incorporated into other se
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 In this section, discuss every existing technique that solves the same \emph{problem} as your approach and addresses a subset of the \emph{requirements} ($R1$, $R2$, and $R3$).
-For example, you can write: ``The approach by Polyvyanyy et al. (2022) addresses the problem partially; that is, $R1$ and $R2$, but not $R3$.''
+For example, you can write: ``The approach by \citet{PolyvyanyyPQM2022} addresses the problem partially; that is, $R1$ and $R2$, but not $R3$.''
 
 You should discuss all important existing solutions to the \emph{problem} your approach solves.
 It is ideal if, through the discussions of this section, you identify existing solutions with which you should compare your approach.
