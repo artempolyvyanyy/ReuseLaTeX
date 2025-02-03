@@ -2,11 +2,7 @@
 % Configuration constants
 %
 % First created on: Nov 9, 2019
-% Last updated on:  Jan 5, 2023
-
-% Artem Polyvyanyy
-% Email:    artem.polyvyanyy@gmail.com 
-% Homepage: http://polyvyanyy.com
+% Last updated on:  Feb 4, 2025
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Use APA title case for the titles: https://capitalizemytitle.com/
@@ -28,9 +24,14 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\newcommand{\change}[2]{#2}%                   \change{from}{to} % SHOW CHANGED TEXT ONLY IN STANDARD STYLE
-%\newcommand{\change}[2]{\textcolor{blue}{#2}}% \change{from}{to} % SHOW CHANGED TEXT ONLY IN BLUE
-\newcommand{\change}[2]{\textcolor{red}{#1}\textcolor{blue}{#2}}% \change{from}{to} % SHOW ORIGNIAL AND CHANGED TEXT
+%\newcommand{\change}[2]{#2}                                            % \change{from}{to} % SHOW CHANGED TEXT ONLY IN STANDARD STYLE
+%\newcommand{\change}[2]{\textcolor{blue}{#2}}                          % \change{from}{to} % SHOW CHANGED TEXT ONLY IN BLUE
+\newcommand{\change}[2]{\textcolor{red}{\sout{#1}}\textcolor{blue}{#2}} % \change{from}{to} % SHOW ORIGNIAL AND CHANGED TEXT
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NewDocumentCommand{\blind}{o m}{\IfValueTF{#1}{#2}{BLIND FOR REVIEW}}	% use this command for double-blind review
+%\NewDocumentCommand{\blind}{o m}{\IfValueTF{#1}{#1}{#2}}	              % use this command for the final submission to "unblind" the manuscript
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

@@ -3,7 +3,7 @@
 % An empty LaTeX project with useful packages and commands
 %
 % First created on: Nov 9, 2019
-% Last updated on:  Dec 30, 2023
+% Last updated on:  Feb 4, 2025
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \def\mode{lncs}
 \input{core.style}
@@ -16,7 +16,7 @@
 
 % Import extra packages
 \usepackage{subfig}
-\usepackage{txfonts} %times
+\usepackage{txfonts} % times
 \usepackage{lipsum}
 \usepackage{adjustbox}
 
@@ -32,7 +32,13 @@
 \chat{Author}{Thanks, I will do that!}
 \done{Author}{Briefly discuss the research area of process mining.}
 
-Use the \change{from}{to} command (see \texttt{core.config.txt}) to track changes, where ``from'' is the old text and ``to'' is the new text. Uncomment one of the three versions of the command to suit your purpose.
+Use the {$\backslash$change\{old text\}\{new text\}} command to track changes in the manuscript like this: \change{old text}{new text}; where ``old text'' is the old text and ``new text'' is the new text.
+Use one of the three versions of the command in \texttt{core.config.tex} to suit your purpose.
+
+Use the {$\backslash$blind\{Artem Polyvyanyy\}} command to remove information that would identify the authors of this manuscript when preparing it for a double-blind review like this: \blind{Artem Polyvyanyy}.
+Use {$\backslash$blind[Unblinded text]\{Blinded text\}} to seamlessly switch between unblinded and blinded text like this:
+\blind[In our previous work~\cite{PolyvyanyyPQM2022}, we showed that \ldots]{Previously, \citet{PolyvyanyyPQM2022} showed that \ldots}.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}

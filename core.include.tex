@@ -2,12 +2,24 @@
 % Improting useful packages and defining useful commands for LaTeX
 %
 % First created on: Dec 2, 2019
-% Last updated on:  Dec 30, 2023
+% Last updated on:  Feb 4, 2025
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % USE PACKAGES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-------------------------------------------------------------------------------
+% xparse – A generic document command parser
+% https://ctan.org/pkg/xparse?lang=en
+\usepackage{xparse}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+% ulem – Package for underlining
+% https://ctan.org/pkg/ulem?lang=en
+\usepackage[normalem]{ulem}
+%-------------------------------------------------------------------------------
 
 % Use natbib package
 \usepackage[square,sort&compress,comma,numbers]{natbib}
@@ -139,7 +151,7 @@
   \ifnum\mathcode`,="8000
   \else
     \begingroup\lccode`~=`, \lowercase{\endgroup
-      \edef~{\mathchar\the\mathcode`, \penalty0 \noexpand\hspace{-1pt plus 3em}}%
+      \edef~{\mathchar\the\mathcode`, \penalty-100 \noexpand\hspace{-1pt plus 3em}}%
     }\mathcode`,="8000
   \fi
   #1%
